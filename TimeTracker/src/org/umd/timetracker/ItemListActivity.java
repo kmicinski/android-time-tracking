@@ -78,7 +78,10 @@ public class ItemListActivity extends ListActivity
 		String activityName[] = 
 		    cursor.getString(cursor.getColumnIndex(ActivityColumns.ACTIVITY_NAME)).
 		    split(TimeTracker.CATEGORY_SEPARATOR);
-		((TextView)view).setText(activityName[0]);
+		if (activityName.length == 0)
+		    ((TextView)view).setText("<Name absent>");
+		else
+		    ((TextView)view).setText(activityName[0]);
 		break;
 	    }
 	case 1:

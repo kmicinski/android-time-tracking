@@ -199,6 +199,10 @@ public class ViewActivity extends Activity
     private void updateViews() {
 	TimeTracker._assert(mActivityName != null, "null activity name");
 	String[] act = mActivityName.split(TimeTracker.CATEGORY_SEPARATOR);
+	if (act.length == 0) {
+	    act = new String[1];
+	    act[0] = "<No activity name given>";
+	}
 	mNameEdit.setText(act[0]);
 	mActivityNameText.setText(act[0]);
 	if (act.length > 1) {
